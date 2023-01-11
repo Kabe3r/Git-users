@@ -5,7 +5,7 @@ import { GithubContext } from '../context/context';
 const Search = () => {
   const [user, setUser] = React.useState('');
   const { requests, error, searchGithubUser, loading } = React.useContext(GithubContext);
-  
+
   // get things from global context
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,19 +17,19 @@ const Search = () => {
   return (
     <section className='section'>
       <Wrapper className='section-center'>
-      {error.show && <ErrorWrapper>
-      <p>{error.msg}</p>
-      </ErrorWrapper>
-      }
-      <h3>requests : {requests} / 60</h3>
-      <form onSubmit={handleSubmit}>
-        <div className='form-control'>
-          <input type='text' placeholder='Search' value={user} onChange={(e) => setUser(e.target.value)} />
-          {requests > 0 && !loading && (<button type='subimt'>
-          <MdSearch />
-          </button>)}
-        </div>
-      </form>
+        {error.show && <ErrorWrapper>
+          <p>{error.msg}</p>
+        </ErrorWrapper>
+        }
+        <h3>requests : {requests} / 60</h3>
+        <form onSubmit={handleSubmit}>
+          <div className='form-control'>
+            <input type='text' placeholder='Search' value={user} onChange={(e) => setUser(e.target.value)} />
+            {requests > 0 && !loading && (<button type='subimt'>
+              <MdSearch />
+            </button>)}
+          </div>
+        </form>
       </Wrapper>
     </section>
   );
@@ -39,13 +39,21 @@ const Wrapper = styled.div`
   position: relative;
   display: grid;
   gap: 1rem 1.75rem;
-  @media (min-width: 768px) {
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+  @media (min-width: 1220px) {
     grid-template-columns: 1fr max-content;
     align-items: center;
     h1 {
       padding: 0 0.5rem;
     }
   }
+
+  h3{
+    grid-row-start: 2;
+  }
+
+
 
   .form-control {
     overflow: hidden;
@@ -55,14 +63,21 @@ const Wrapper = styled.div`
     border-radius: 2em;
     box-shadow: 0 0 5px #fff;
     transition: all 0.35s;
+
     &:hover, &:focus, &:focus-within {
       width: 48em;
       border-radius: 5px 2rem 2rem 5px;
       outline: none;
+    @media (max-width: 830px) {
+       width: 20em;
+    }
     input {
       display: inline-block;
       width: 32em;
       padding: 10px;
+    @media (max-width: 830px) {
+       width: 12em;
+    }
     }
     } 
   }  
@@ -107,6 +122,10 @@ const Wrapper = styled.div`
       box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.25), 0 1px 1px rgba(0, 0, 0, 0.25);
       text-shadow: 0 -2px 1px rgba( 0, 0, 0, 0.3);
       cursor: pointer;
+    @media (max-width: 800px) {
+       width: 1.5em;
+       height: 1.5em;
+    }
       &:active {
         border: 0 !important;
         text-shadow: 0 0 0; 
@@ -117,7 +136,6 @@ const Wrapper = styled.div`
   h3 {
     margin-bottom: 0;
     color: var(--clr-white);
-    font-size: 2rem;
     font-weight: 400;
     background: linear-gradient(to right, #0052d4, #4364f7, #6fb1fc);
     position: absolute;

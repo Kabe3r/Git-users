@@ -77,13 +77,14 @@ const Item = ({ icon, label, value, color, bg, fontColor }) => {
 
 const Wrapper = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  justify-items: center;
   gap: 1rem 2rem;
   width: 100%;
   height: 100%;
-  @media (min-width: 640px) {
+  @media (min-width: 1220px) {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   }
+
   .item {
     box-shadow: -.1rem 1.7rem 6.6rem -3.2rem rgba(0,0,0,0.5);
     height: 12rem;
