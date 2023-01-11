@@ -1,9 +1,8 @@
-## Starter Project
+## For Installation Dev dependencies and starting
 
-- css provided (global styles, styled components)
-- folders/files already setup
-- all imports included (warnings)
-- index.js for easier imports
+
+```npm install```
+```npm start```
 
 ## Styled Components
 
@@ -34,16 +33,6 @@ export default ReactComponent
 import { FiUsers, FiUserPlus } from 'react-icons/fi';
 <FiUsers className='nameOfTheClass'> </FiUsers>;
 ```
-
-## React Router Dom
-
-version used - "react-router-dom": "^5.2.0",
-
-- [react-router-dom - Main Docs](https://reactrouter.com/web/guides/quick-start)
-
-- <Switch> renders the first child <Route> that matches
-- A <Route path="*"> always matches
-
 ## Gihthub API
 
 - [Root Endpoint](https://api.github.com)
